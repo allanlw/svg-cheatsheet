@@ -23,7 +23,7 @@ SVG can include external images directly via the `<image>` tag.
 
 Note that you can use this to include *other SVG* images too.
 
-# <use>
+# The `<use>` tag
 
 SVG can include external SVG content via the `<use>` tag.
 
@@ -110,8 +110,6 @@ SVGs can include XSLT stylesheets via `<?xml-stylesheet?>`. Surprisingly, this d
       doctype-system="http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"
       media-type="image/svg" />
 
-
-  <!-- Add version to topmost 'svg' element -->
   <xsl:template match="/svg:svg">
     <svg width="10cm" height="5cm"
        xmlns="http://www.w3.org/2000/svg">
@@ -188,7 +186,7 @@ Because SVG is XML, it can also have XXEs:
 </svg>
 ```
 
-# foreignObject
+# `<foreignObject>`
 
 The `<foreignObject>` tag is insane. It can be used to include arbitrary (X)HTML in an SVG.
 
@@ -263,4 +261,14 @@ This example from the SVG spec shows using a tref node to reference text by URI,
 
 If you know of any other methods or relevant information/examples, feel free to open an issue/PR.
 
-Copyright 2019 Allan Wirth
+If you found this useful, I'd appreciate it if you'd let me know! It makes my day.
+
+``` quote
+Copyright 2019 Allan Wirth <allan@allanwirth.com>.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```

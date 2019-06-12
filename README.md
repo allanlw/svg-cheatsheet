@@ -1,6 +1,6 @@
 # SVG SSRF Cheatsheet
 
-Hosts that process SVG can potentially be vulnerable to SSRF, LFI and RCE because of the rich feature set of SVG.
+Hosts that process SVG can potentially be vulnerable to SSRF, LFI, XSS, RCE because of the rich feature set of SVG.
 
 All of these methods specify a URI, which can be absolute or relative. File and HTTP protocol are important to test, but it could also support other protocols depending on the implementation (e.g. PHP stream schemes), including javascript: and data:.
 
@@ -10,6 +10,7 @@ Note that some services that claim to not accept SVG as an input format actually
 
 * For uploads, send a JPEG/PNG mime type and filename.
 * For downloads, have a JPEG/PNG filename and mime type. If refused, check for TOCTOU on the URL (double fetch) and if it follows redirects.
+* I haven't seen it but Mime sniffing confusion is probably also possibleMime sniffing confusion as SVG is difficult to sniff because it can start with extra XML garbage. In fact, AFAICT the standard `file` command doesn't include any SVG magic, so it's likely up to the individual implementations.
 
 # Images
 SVG can include external images directly via the `<image>` tag.
@@ -119,7 +120,9 @@ SVGs can include XSLT stylesheets via `<?xml-stylesheet?>`. Surprisingly, this d
 </xsl:stylesheet>
 ```
 
-Note: due to the nature of XSLT, the input doesn't actually *have* to be a valid SVG file if the xml-stylesheet is ignored, but it's useful to bypass filters.
+Note: due to the nature of XSLT, the input doesn't actually *have* to be a valid SVG file if the xml-stylesheet is ignored, but it's useful to bypass filters. 
+
+Also, Because I have no interest in learning XSLT, this template just wholesale replaces the entire "old" image with the new one.
 
 # Javascript
 

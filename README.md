@@ -263,8 +263,8 @@ This example from the SVG spec shows using a tref node to reference text by URI,
 ImageMagick has [special formats](https://imagemagick.org/script/formats.php) that can be used to read local files when the SVG is processed server-side:
 
 ``` xml
-<svg>
-  <image width="800" height="800" href="text:/etc/passwd">
+<svg width="800" height="800">
+  <image width="800" height="800" href="text:/etc/passwd"/>
 </svg>
 ```
 
